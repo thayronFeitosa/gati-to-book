@@ -1,6 +1,6 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4" (ngSubmit)="login()">
+<form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
   <div class="mb-3">
     <input
       class="form-control"
@@ -11,7 +11,7 @@
       required
     />
     <app-mensagem
-    *ngIf="usernameInput.invalid"
+    *ngIf="usernameInput.invalid  && usernameInput.touched"
     messagem="Usuário obrrigatorio">
   </app-mensagem>
   </div>
@@ -27,12 +27,12 @@
       required
     />
     <app-mensagem
-      *ngIf="passwordInput.invalid"
+      *ngIf="passwordInput.invalid && passwordInput.touched"
       messagem="Senha obrrigatorio">
     </app-mensagem>
   </div>
 
   <div class="d-grid gap-2">
-    <button class="btn btn-primary" type="submit">Login</button>
+    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
   </div>
 </form>
