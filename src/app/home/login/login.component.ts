@@ -8,7 +8,7 @@ import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public username: string = '1';
+  public username: string = '';
   public password: string = '';
 
   constructor(

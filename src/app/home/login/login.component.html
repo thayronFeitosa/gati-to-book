@@ -5,9 +5,15 @@
     <input
       class="form-control"
       placeholder="Nome do usuário"
-      [(ngModel)]="username"
       name="username"
+      [(ngModel)]="username"
+      #usernameInput=ngModel
+      required
     />
+    <app-mensagem
+    *ngIf="usernameInput.invalid"
+    messagem="Usuário obrrigatorio">
+  </app-mensagem>
   </div>
 
   <div class="mb-3">
@@ -17,7 +23,13 @@
       placeholder="Senha"
       [(ngModel)]="password"
       name="password"
+      #passwordInput=ngModel
+      required
     />
+    <app-mensagem
+      *ngIf="passwordInput.invalid"
+      messagem="Senha obrrigatorio">
+    </app-mensagem>
   </div>
 
   <div class="d-grid gap-2">
