@@ -21,8 +21,8 @@
     <div class="form-group mb-3">
         <input type="text" class="form-control" placeholder="Usuário" formControlName="userName" />
         <app-mensagem
-        *ngIf="novoUsuarioForm.get('userName')?.errors"
-        messagem="Nome do usuário e obrrigatório e conter no minino 4 caracteres"
+        *ngIf="novoUsuarioForm.get('userName')?.errors?.['minusculo'] && novoUsuarioForm.get('userName')?.touched"
+        messagem="o Nome dever ser minusculo"
         ></app-mensagem>
     </div>
     <div class="form-group mb-3">
