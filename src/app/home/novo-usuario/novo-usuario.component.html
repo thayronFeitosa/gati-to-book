@@ -2,15 +2,35 @@
 <form action="" class="form mt-4" [formGroup]="novoUsuarioForm" (submit)=cadatrar()>
     <div class="form-group mb-3">
         <input type="text" class="form-control" placeholder="e-mail" formControlName="email" />
+        <app-mensagem
+        *ngIf="novoUsuarioForm.get('email')?.errors"
+        messagem="Email obrrigatório"
+        ></app-mensagem>
+        <app-mensagem
+        *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] && novoUsuarioForm.get('email')?.touched"
+        messagem="E-mail no formato incorreto"
+        ></app-mensagem>
     </div>
     <div class="form-group mb-3">
         <input type="text" class="form-control" placeholder="Nome completo" formControlName="fullName" />
+        <app-mensagem
+        *ngIf="novoUsuarioForm.get('fullName')?.errors"
+        messagem="Nome do usuário e obrrigatório e conter no minino 4 caracteres"
+        ></app-mensagem>
     </div>
     <div class="form-group mb-3">
         <input type="text" class="form-control" placeholder="Usuário" formControlName="userName" />
+        <app-mensagem
+        *ngIf="novoUsuarioForm.get('userName')?.errors"
+        messagem="Nome do usuário e obrrigatório e conter no minino 4 caracteres"
+        ></app-mensagem>
     </div>
     <div class="form-group mb-3">
         <input type="password" class="form-control" placeholder="Senha" formControlName="password" />
+        <app-mensagem
+        *ngIf="novoUsuarioForm.get('password')?.errors"
+        messagem="Senha e obrrigatório"
+        ></app-mensagem>
     </div>
     <div class="d-grid gap-2">
         <button class="btn btn-primary btn-block">Cadastro</button>
